@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Tmpps.Boardless.Infrastructure.Authentication" Version="1.0.0" />
+      <PackageReference Include="Tmpps.Infrastructure.Data" Version="1.1.0" />
+      <PackageReference Include="Tmpps.Infrastructure.JsonWebToken" Version="1.0.0" />
+      <PackageReference Include="Tmpps.Infrastructure.SQS" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>
