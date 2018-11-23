@@ -11,7 +11,7 @@
         <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.6" />
         <PackageReference Include="Tmpps.Infrastructure.AspNetCore" Version="1.0.0" />
         <PackageReference Include="Tmpps.Infrastructure.Autofac" Version="1.0.0" />
     </ItemGroup>
