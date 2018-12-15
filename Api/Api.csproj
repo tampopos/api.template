@@ -1,18 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-    </PropertyGroup>
-    <PropertyGroup>
-        <UserSecretsId>boardless-web-secret</UserSecretsId>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\UseCases\UseCases.csproj" />
         <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.6" />
-        <PackageReference Include="Tmpps.Infrastructure.AspNetCore" Version="1.0.0" />
-        <PackageReference Include="Tmpps.Infrastructure.Autofac" Version="1.0.0" />
+        <PackageReference Include="Tmpps.Infrastructure.AspNetCore" Version="2.0.0" />
+        <PackageReference Include="Tmpps.Infrastructure.Autofac" Version="2.0.1" />
     </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Api.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 using Tmpps.Infrastructure.Autofac.Extensions;
 
 namespace Api
@@ -11,6 +12,11 @@ namespace Api
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
+                .ConfigureLogging(builder =>
+                {
+                    builder.AddConsole();
+                    builder.AddDebug();
+                })
                 .ConfigureServices(services => services.AddDI())
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()

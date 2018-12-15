@@ -19,37 +19,36 @@ tmpps.boardless の API サーバー
 
 ## Usage
 
-#### 始めに
+#### restore
 
-`npm install`
+`dotnet restore Api/;dotnet restore Domain.Tests/`
 
-#### ビルド
+#### build
 
-`npm run build`
+`dotnet build Api/`
 
-#### テスト
+#### test
 
-`npm run test`
+`dotnet test Domain.Tests/`
 
-#### Database を Docker で起動
+#### run
 
-`npm run db`
+`sudo docker-compose up`
 
-##### Docker 上の postgresql にログインする
-
-`docker exec -ti database_boardless-postgres_1 psql -U postgres`
-
-#### WebApi を実行
-
-`npm run web`
-
-#### Messaging Subscriber を実行
-
-`npm run subscriber`
-
-#### Debug
+#### debug
 
 vscode でデバッグ実行可能
+
+#### validate ci config
+
+`circleci config validate`
+
+#### release
+
+```bash
+git tag X.Y.Z
+git push origin --tags
+```
 
 ## リンク
 

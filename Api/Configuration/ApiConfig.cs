@@ -10,6 +10,7 @@ using Tmpps.Infrastructure.Data.Configuration.Interfaces;
 using Tmpps.Infrastructure.JsonWebToken.Interfaces;
 using Tmpps.Infrastructure.SQS;
 using Tmpps.Infrastructure.SQS.Interfaces;
+using Tmpps.Infrastructure.SQS.Models;
 
 namespace Api.Configuration
 {
@@ -24,8 +25,6 @@ namespace Api.Configuration
             this.JwtExpiresDate = this.configurationRoot.GetValue<int>(nameof(this.JwtExpiresDate));
             this.JwtAudience = this.configurationRoot.GetValue<string>(nameof(this.JwtAudience));
             this.JwtIssuer = this.configurationRoot.GetValue<string>(nameof(this.JwtIssuer));
-            this.Database = this.configurationRoot.GetValue<string>(nameof(this.Database));
-            this.AdminConnectionString = this.GetConnectionString("AdminConnection");
             this.SystemDateTime = this.configurationRoot.GetValue<DateTime?>(nameof(this.SystemDateTime));
             this.AwsAccessKeyId = this.configurationRoot.GetValue<string>(nameof(this.AwsAccessKeyId));
             this.AwsSecretAccessKey = this.configurationRoot.GetValue<string>(nameof(this.AwsSecretAccessKey));
@@ -44,15 +43,12 @@ namespace Api.Configuration
         public int JwtExpiresDate { get; }
         public string JwtAudience { get; }
         public string JwtIssuer { get; }
-        public string Database { get; }
-        public string AdminConnectionString { get; }
         public DateTime? SystemDateTime { get; }
         public string AwsAccessKeyId { get; }
         public string AwsSecretAccessKey { get; }
         public string ServiceURL { get; }
         public IDictionary<string, SQSMessageSendSetting> SQSMessageSendSettings { get; }
         public IDictionary<string, SQSMessageReceiveSetting> SQSMessageReceiveSettings { get; }
-
         public int MaxConcurrencyReceive { get; }
 
         public string GetConnectionString(string name)

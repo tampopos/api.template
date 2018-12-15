@@ -33,8 +33,6 @@ namespace Api.Configuration
             this.hostingEnvironment = hostingEnvironment;
             this.loggerFactory = loggerFactory;
             this.configuration = configuration;
-            this.loggerFactory.AddConsole(this.configuration.GetSection("Logging"));
-            this.loggerFactory.AddDebug();
             this.executeAssembly = Assembly.GetEntryAssembly();
             this.rootPath = Directory.GetCurrentDirectory();
             this.configurationRoot = this.CreateConfigurationRoot();
@@ -46,13 +44,8 @@ namespace Api.Configuration
                 .SetBasePath(hostingEnvironment.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional : true, reloadOnChange : true)
                 .AddJsonFile($"appsettings.{hostingEnvironment.EnvironmentName}.json", optional : true)
-                .AddJsonFile($"appsettings.user.json", optional : true)
-                .AddEnvironmentVariables();
-            if (hostingEnvironment.IsDevelopment())
-            {
-                builder.AddUserSecrets(this.executeAssembly);
-            }
-            builder.AddEnvironmentVariables();
+                .AddEnvironmentVariables()
+                .AddJsonFile($"appsettings.user.json", optional : true);
             return builder.Build();
         }
 

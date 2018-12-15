@@ -8,26 +8,11 @@
       "name": "Web",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
-      "program": "${workspaceFolder}/Api/bin/Debug/netcoreapp2.1/Api.dll",
+      "program": "${workspaceFolder}/Api/bin/Debug/netcoreapp2.2/Api.dll",
       "args": [],
       "cwd": "${workspaceFolder}/Api",
       "stopAtEntry": false,
       "internalConsoleOptions": "openOnSessionStart",
-      "launchBrowser": {
-        "enabled": true,
-        "args": "${auto-detect-url}",
-        "windows": {
-          "command": "cmd.exe",
-          "args": "/C start ${auto-detect-url}"
-        },
-        "osx": {
-          "command": "open"
-        },
-        "linux": {
-          "command": "xdg-open"
-        }
-      },
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
