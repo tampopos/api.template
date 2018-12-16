@@ -10,6 +10,8 @@ executors:
           POSTGRES_USER: 'postgres'
           POSTGRES_PASSWORD: 'postgres'
       - image: tampopos/boardless-deploys-db:2.0.0
+        environment:
+          ConnectionStrings__Root: 'Server=127.0.0.1;User ID=postgres;Password=postgres;Port=5432;'
   dind:
     docker:
       - image: docker:latest
