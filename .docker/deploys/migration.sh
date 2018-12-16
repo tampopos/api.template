@@ -20,5 +20,6 @@ do
   fi
   echo 'wait 5 sec...'
   sleep 5
-  let time=$time+5
+  let time=time+5
+  echo $time
 done
