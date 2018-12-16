@@ -9,13 +9,13 @@ services:
       POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --locale=C'
       LANG: ja_JP.UTF-8
     volumes:
-      - ./.data/:/var/lib/postgresql/data:Z
+      - /.data/boardless/:/var/lib/postgresql/data:Z
     networks:
       - my-network
     ports:
       - '5432:5432'
   deploys-db:
-    image: tampopos/boardless-deploys-db:1.0.0
+    image: tampopos/boardless-deploys-db:2.0.0
     environment:
       - ConnectionStrings__Root=Server=postgres;User ID=postgres;Password=postgres;Port=5432;
       - Directory=./.migration
@@ -25,6 +25,15 @@ services:
       - postgres
     links:
       - postgres
+  deploys:
+    build: ./.docker/deploys/
+    image: tampopos/deploys
+    networks:
+      - my-network
+    depends_on:
+      - deploys-db
+    links:
+      - deploys-db
   api:
     build: .
     image: tampopos/template-api
@@ -35,7 +44,7 @@ services:
     links:
       - postgres
     depends_on:
-      - deploys-db
+      - deploys
     ports:
       - '8080:80'
 networks:

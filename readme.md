@@ -21,7 +21,7 @@ tmpps.boardless の API サーバー
 
 #### restore
 
-`dotnet restore Api/;dotnet restore Domain.Tests/`
+`dotnet restore Api/;dotnet restore Domain.Tests/;dotnet restore Infrastructure.Data.Tests/`
 
 #### build
 
@@ -29,7 +29,10 @@ tmpps.boardless の API サーバー
 
 #### test
 
-`dotnet test Domain.Tests/`
+```bash
+dotnet test Domain.Tests/
+dotnet test Infrastructure.Data.Tests/
+```
 
 #### run
 
