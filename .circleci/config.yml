@@ -41,7 +41,7 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:80 -timeout 1m
       - run:
           name: migration
-          command: sh .docker/deploys/migration.sh 127.0.0.1:80 60
+          command: sh .docker/deploys/migration.sh 127.0.0.1:80/migrations 60
       - run:
           name: test
           command: dotnet test Infrastructure.Data.Tests
