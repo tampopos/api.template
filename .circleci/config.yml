@@ -9,7 +9,7 @@ executors:
           POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --locale=C'
           POSTGRES_USER: 'postgres'
           POSTGRES_PASSWORD: 'postgres'
-      - image: tampopos/boardless-deploys-db:4.0.1
+      - image: tampopos/boardless-deploys-db:4.0.2
         environment:
           ConnectionStrings__Root: 'Server=127.0.0.1;User ID=postgres;Password=postgres;Port=5432;'
   dind:

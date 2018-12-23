@@ -15,7 +15,7 @@ services:
     ports:
       - '5432:5432'
   deploys-db:
-    image: tampopos/boardless-deploys-db:4.0.1
+    image: tampopos/boardless-deploys-db:4.0.2
     environment:
       - ConnectionStrings__Root=Server=postgres;User ID=postgres;Password=postgres;Port=5432;
       - Directory=./.migration
