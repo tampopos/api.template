@@ -5,7 +5,7 @@
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="Tmpps.Boardless.Infrastructure.Authentication" Version="2.0.0" />
-      <PackageReference Include="Tmpps.Infrastructure.Data" Version="2.0.4" />
+      <PackageReference Include="Tmpps.Infrastructure.Data" Version="3.0.0" />
       <PackageReference Include="Tmpps.Infrastructure.JsonWebToken" Version="2.0.0" />
       <PackageReference Include="Tmpps.Infrastructure.SQS" Version="2.2.1" />
     </ItemGroup>
