@@ -42,11 +42,11 @@ jobs:
           name: Wait for app
           command: dockerize -wait tcp://127.0.0.1:80 -timeout 1m
       - run:
-          name: install waiter
-          command: wget https://raw.githubusercontent.com/tampopos/shell-scripts/master/wait-for-result.sh
+          name: install httpwait
+          command: wget https://github.com/tampopos/httpwait/releases/download/1.0.1/httpwait_linux_amd64 && chmod 777 httpwait_linux_amd64
       - run:
-          name: wait migration
-          command: bash wait-for-result.sh http://127.0.0.1:80/migration/state/ Success GET 120
+          name: wait
+          command: ./httpwait_linux_amd64 -url http://127.0.0.1:80/migration/state/ -result Success -method GET -timeout 120
       - run:
           name: test
           command: dotnet test Infrastructure.Data.Tests
