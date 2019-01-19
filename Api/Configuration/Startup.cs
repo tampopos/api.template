@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Tmpps.Boardless.Infrastructure.Authentication.Models;
+using Tmpps.Infrastructure.AspNetCore.Configuration.Interfaces;
 using Tmpps.Infrastructure.AspNetCore.Extensions;
 using Tmpps.Infrastructure.AspNetCore.Middlewares.Extensions;
 using Tmpps.Infrastructure.Autofac.Builder;
@@ -52,7 +53,8 @@ namespace Api.Configuration
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             this.config = new ApiConfig(this.configurationRoot);
-            services.AddWebApiService(this.config);
+            services.AddCors();
+            services.AddJwtAuthentication(this.config);
             services.AddMvc().AddControllersAsServices();
 
             var builder = new AutofacBuilder();
@@ -74,7 +76,10 @@ namespace Api.Configuration
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
-            app.UseWebApiServiceMiddlewares<UserClaim>(this.config);
+            app.UseRequestLogger();
+            app.UseCors(this.config as ICorsConfig);
+            app.UseJwtAuthentication<UserClaim>();
+            app.UseMvc(this.config);
         }
     }
 }

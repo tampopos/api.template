@@ -59,7 +59,6 @@ namespace Api.Configuration
             builder.RegisterInstance(this.configurationRoot, x => x.As<IConfigurationRoot>());
             builder.RegisterType<ApiConfig>(x =>
                 x.As<IDbConfig>()
-                .As<IWebConfig>()
                 .As<IJwtConfig>()
                 .As<ISQSConfig>()
                 .SingleInstance());

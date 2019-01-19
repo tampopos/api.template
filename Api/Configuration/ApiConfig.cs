@@ -14,7 +14,7 @@ using Tmpps.Infrastructure.SQS.Models;
 
 namespace Api.Configuration
 {
-    public class ApiConfig : IWebConfig, IConfig, IDbConfig, IJwtConfig, ISQSConfig
+    public class ApiConfig : IJwtWebConfig, IConfig, IDbConfig, ICorsConfig, IMvcConfig, ISQSConfig
     {
         protected IConfigurationRoot configurationRoot;
         public ApiConfig(IConfigurationRoot configurationRoot)
@@ -32,9 +32,7 @@ namespace Api.Configuration
             this.SQSMessageSendSettings = this.configurationRoot.GetSQSMessageSendSettings(nameof(this.SQSMessageSendSettings));
             this.SQSMessageReceiveSettings = this.configurationRoot.GetSQSMessageReceiveSettings(nameof(this.SQSMessageReceiveSettings));
             this.MaxConcurrencyReceive = this.configurationRoot.GetValue<int>(nameof(this.MaxConcurrencyReceive));
-            this.IsEnableCors = this.configurationRoot.GetValue<bool>(nameof(IsEnableCors));
-            this.UseAuthentication = this.configurationRoot.GetValue<bool>(nameof(UseAuthentication));
-            this.IsUseSecure = this.configurationRoot.GetValue<bool>(nameof(IsUseSecure));
+            this.UseSecure = this.configurationRoot.GetValue<bool>(nameof(UseSecure));
             this.CorsOrigins = this.configurationRoot.GetValue<string>(nameof(CorsOrigins));
         }
 
@@ -55,9 +53,7 @@ namespace Api.Configuration
         {
             return this.configurationRoot.GetConnectionString(name);
         }
-        public bool IsEnableCors { get; set; }
-        public bool UseAuthentication { get; set; }
-        public bool IsUseSecure { get; set; }
+        public bool UseSecure { get; set; }
         public string CorsOrigins { get; set; }
 
         public IEnumerable<string> GetCorsOrigins()
