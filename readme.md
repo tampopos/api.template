@@ -4,18 +4,11 @@ tmpps.boardless の API サーバー
 
 ## Required
 
-- .Net core 2.1
-- node.js
+- .Net core 2.2
+- docker
+- docker-compose
 - AWS SQS  
   アプリケーション設定に認証情報を追加する
-
-#### Options
-
-- vscode
-- Docker で Database を作成する場合
-  - docker
-  - docker-compose
-  - linux
 
 ## Usage
 
